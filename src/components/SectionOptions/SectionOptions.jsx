@@ -12,7 +12,6 @@ function SectionOptions() {
                 <div>Technicals</div>
                 <div>Tokenomics</div>
             </div>
-            <hr className=""></hr>
         </div>
     );
 }
