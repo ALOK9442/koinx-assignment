@@ -2,7 +2,7 @@ import React from 'react'
 
 const Navbar = () => {
   return (
-    <div className="w-[full] h-[65px] bg-white text-black flex items-center justify-between px-9">
+    <div className="w-[1440px] h-[80px] bg-white text-black flex items-center justify-between px-9">
       <div className="">
         <img src="https://www.koinx.com/_next/static/media/Logo.5f2ad8d5.svg" className="w-[96px] " alt="" />
       </div>
