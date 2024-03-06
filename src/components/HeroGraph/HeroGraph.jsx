@@ -2,50 +2,41 @@ import React, { useEffect, useState, useRef } from "react";
 import axios from "axios";
 
 const HeroGraph = () => {
-  const [priceUSD, setPriceUSD] = useState({ bitcoin: { usd: null } }); // Set initial state to an object with a default value
+  const [priceUSD, setPriceUSD] = useState({ bitcoin: { usd: null } });
   const [priceINR, setPriceINR] = useState({});
   const [bitcoinPriceChange, setBitcoinPriceChange] = useState(null);
   const [down, setDown] = useState(false);
   const container = useRef();
 
   useEffect(() => {
-    const fetchBitcoinPriceUSD = async () => {
+    const fetchData = async () => {
       try {
-        const res = await axios.get(
+        const resUSD = await axios.get(
           "https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd",
           { crossDomain: true }
         );
-        setPriceUSD(res.data);
-      } catch (error) {
-        console.log(error);
-      }
-    };
-
-    const fetchBitcoinPriceINR = async () => {
-      try {
-        const res = await axios.get(
+        setPriceUSD(resUSD.data);
+  
+        const resINR = await axios.get(
           "https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=inr",
           { crossDomain: true }
         );
-        setPriceINR(res.data);
+        setPriceINR(resINR.data);
+  
+        const resChange = await axios.get("https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=bitcoin&order=market_cap_desc&per_page=100&page=1&sparkline=true&locale=en", { crossDomain: true });
+        setBitcoinPriceChange(resChange?.data[0]?.price_change_percentage_24h);
       } catch (error) {
         console.log(error);
       }
     };
-
-    const fetchBitcoinPriceChange = async () => {
-      try {
-        const res = await axios.get("https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=bitcoin&order=market_cap_desc&per_page=100&page=1&sparkline=true&locale=en", { crossDomain: true });
-        setBitcoinPriceChange(res?.data[0]?.price_change_percentage_24h);
-      } catch (error) {
-        console.log(error);
-      }
-    };
-
-    fetchBitcoinPriceUSD();
-    fetchBitcoinPriceINR();
-    fetchBitcoinPriceChange();
+  
+    fetchData();
+  
+    const interval = setInterval(fetchData, 1000);
+  
+    return () => clearInterval(interval);
   }, []);
+  
 
   useEffect(() => {
     if (bitcoinPriceChange > 0) {
@@ -98,9 +89,9 @@ const HeroGraph = () => {
       <div className="w-[568.72px] h-[66px]  self-start mx-10 flex gap-4 ">
         <div className="h-full w-[161px]  flex flex-col justify-between">
           <div className="text-[28px] font-semibold">
-            ${priceUSD ? priceUSD.bitcoin?.usd : "Loading..."} {/* Conditional rendering */}
+            ${priceUSD ? priceUSD.bitcoin?.usd : "$66759"}
           </div>
-          <div className="text-[16px] font-medium">₹ {priceINR ? priceINR.bitcoin?.inr : "coinGecko Server Error"}</div>
+          <div className="text-[16px] font-medium">₹ {priceINR ? priceINR.bitcoin?.inr : "₹ 5535287"}</div>
         </div>
         <div className="w-[375.72px] h-[38.39px]  flex items-center gap-4">
           <div className="w-[84px] h-[28px] bg-[#EBF9F4] flex items-center justify-center gap-2 rounded-[4px]">

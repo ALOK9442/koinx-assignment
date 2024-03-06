@@ -2,7 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
+
+:root {
+    --foreground-rgb: 239,242,245,255;
+  }
+
+  body {
+    background-color: rgb(var(--foreground-rgb));
+  }
+  
+
 .myElement::-webkit-scrollbar{
     opacity: 0;
     
     }
+
