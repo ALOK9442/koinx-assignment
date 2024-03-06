@@ -2,16 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 239,242,245,255;
-}
-
-body {
-  background-color: rgb(var(--foreground-rgb));
-}
-
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
-}
+.myElement::-webkit-scrollbar{
+    opacity: 0;
+    
+    }

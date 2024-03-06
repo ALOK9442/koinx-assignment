@@ -1,11 +1,57 @@
 "use client"
-import React from 'react'
-import TrendingCoinsBanner from '../TrendingCoinsbanner/TrendingCoinsBanner'
-import { useContext } from 'react'
-import { coinContext } from '../context/coinsContext'
+import React, { useState, useEffect } from 'react';
+import TrendingCoinsBanner from '../TrendingCoinsbanner/TrendingCoinsBanner';
+import axios from 'axios';
 
 const TrendingCoins = () => {
-  const { trendingCoins } = useContext(coinContext);
+  const [trendingCoins, setTrendingCoins] = useState([]);
+  const [priceUSD, setPriceUSD] = useState({});
+  const [priceINR, setPriceINR] = useState({});
+  const [bitcoinPriceChange, setBitcoinPricechange] = useState(null);
+
+  useEffect(() => {
+    const fetchTrendingCoins = async () => {
+      try {
+        const res = await axios.get('https://api.coingecko.com/api/v3/search/trending', { crossDomain: true });
+        setTrendingCoins(res.data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    const fetchPriceUSD = async () => {
+      try {
+        const res = await axios.get('https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd', { crossDomain: true });
+        setPriceUSD(res.data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    const fetchPriceINR = async () => {
+      try {
+        const res = await axios.get('https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=inr', { crossDomain: true });
+        setPriceINR(res.data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    const fetchBitcoinPriceChange = async () => {
+      try {
+        const res = await axios.get('https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=bitcoin&order=market_cap_desc&per_page=100&page=1&sparkline=true&locale=en', { crossDomain: true });
+        setBitcoinPricechange(res?.data[0]?.price_change_percentage_24h);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    fetchTrendingCoins();
+    fetchPriceUSD();
+    fetchPriceINR();
+    fetchBitcoinPriceChange();
+
+  }, []);
 
   return (
     <div className="w-[426px] h-full  flex flex-col justify-between gap-4 items-center max-[411px]:w-full max-[411px]:h-[700px] max-[411px]:gap-5 max-[411px]:mb-9 max-[411px]:absolute max-[411px]:bottom-0">
