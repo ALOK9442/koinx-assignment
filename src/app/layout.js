@@ -15,8 +15,11 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={inter.className}>
         <CoinContextProvider>
-          <Navbar />
-          {children}
+          <div className="h-[321.94rem] w-[90rem]">
+            <Navbar />
+            {children}
+            
+          </div>
         </CoinContextProvider>
       </body>
     </html>
