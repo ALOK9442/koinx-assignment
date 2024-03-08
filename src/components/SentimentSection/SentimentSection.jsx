@@ -90,7 +90,6 @@ function SentimentSection() {
             </div>
           </div>
         </div>
-        {/* {-------} */}
 
         <div className="mb-6">
           <div className="flex items-center py-4 mt-6">
@@ -110,7 +109,7 @@ function SentimentSection() {
             <div className="px-10 mt-2">
               <div className="flex p-2 items-center">
                 <div className="text-[#7C7E8C] text-[15px] mr-9">Buy</div>
-                <div className="w-96 h-2">
+                <div className="w-[100%] h-2">
                   <div className="bg-[#00B386] h-full rounded-lg "></div>
                 </div>
                 <div className="ml-3 text-[#7C7E8C] text-sm">76%</div>

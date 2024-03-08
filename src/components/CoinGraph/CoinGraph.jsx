@@ -1,42 +1,42 @@
 import React, { useEffect, useState, useRef } from "react";
 import axios from "axios";
 
-const HeroGraph = () => {
-  const [priceUSD, setPriceUSD] = useState({ bitcoin: { usd: null } });
-  const [priceINR, setPriceINR] = useState({});
-  const [bitcoinPriceChange, setBitcoinPriceChange] = useState(null);
+const CoinGraph = () => {
+  const [bitcoinPriceChange, setBitcoinPriceChange] = useState(0);
+const [priceUSD, setPriceUSD] = useState({ bitcoin: { usd: 0 } });
+const [priceINR, setPriceINR] = useState({ bitcoin: { inr: 0 } });
   const [down, setDown] = useState(false);
   const container = useRef();
 
+
+  const fetchData = async () => {
+    try {
+      const resUSD = await axios.get(
+        "https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd",
+        { crossDomain: true }
+      );
+      setPriceUSD(resUSD.data);
+
+      const resINR = await axios.get(
+        "https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=inr",
+        { crossDomain: true }
+      );
+      setPriceINR(resINR.data);
+
+      const resChange = await axios.get("https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=bitcoin&order=market_cap_desc&per_page=100&page=1&sparkline=true&locale=en", { crossDomain: true });
+      setBitcoinPriceChange(resChange?.data[0]?.price_change_percentage_24h);
+    } catch (error) {
+      console.log(error);
+    }
+  };
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const resUSD = await axios.get(
-          "https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd",
-          { crossDomain: true }
-        );
-        setPriceUSD(resUSD.data);
-  
-        const resINR = await axios.get(
-          "https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=inr",
-          { crossDomain: true }
-        );
-        setPriceINR(resINR.data);
-  
-        const resChange = await axios.get("https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=bitcoin&order=market_cap_desc&per_page=100&page=1&sparkline=true&locale=en", { crossDomain: true });
-        setBitcoinPriceChange(resChange?.data[0]?.price_change_percentage_24h);
-      } catch (error) {
-        console.log(error);
-      }
-    };
-  
     fetchData();
-  
+
     const interval = setInterval(fetchData, 1000);
-  
+
     return () => clearInterval(interval);
   }, []);
-  
+
 
   useEffect(() => {
     if (bitcoinPriceChange > 0) {
@@ -73,25 +73,25 @@ const HeroGraph = () => {
   }, []);
 
   return (
-    <div className="w-[881px] h-[711px] bg-white flex flex-col items-center gap-8 py-5 rounded-lg max-[411px]:max-w-[384px] max-[411px]:gap-6 max-[411px]:h-[445px] max-[411px]:relative max-[411px]:mt-[68px]">
+    <div className="w-full h-[711px] bg-white flex flex-col items-center gap-8 py-5 rounded-lg max-[411px]:max-w-[384px] max-[411px]:gap-6 max-[411px]:h-[445px] max-[411px]:relative max-[411px]:mt-[68px]">
       <div className="w-[95%] h-[40px] self-start px-10 flex items-center gap-1 max-[411px]:px-6 max-[411px]:absolute max-[411px]:top-[-60px]">
         <img
           src="https://cryptologos.cc/logos/bitcoin-btc-logo.png"
-          className="h-[36px] w-[36px] object-cover"
+          className="h-9 w-9 object-cover"
           alt=""
         />
         <div className="font-semibold text-[23px]">Bitcoin</div>
         <div className="h-[55%] flex-col items-start text-[15px]">BTC</div>
-        <div className="h-[35px] w-[75px] text-[13px] flex items-center justify-center text-white bg-[#808A9D] rounded-[8px] ml-5 font-[500]">
+        <div className="h-9 w-19 text-[13px] flex items-center justify-center text-white bg-[#808A9D] rounded-[8px] ml-5 font-[500]">
           Rank #1
         </div>
       </div>
       <div className="w-[568.72px] h-[66px]  self-start mx-10 flex gap-4 ">
         <div className="h-full w-[161px]  flex flex-col justify-between">
           <div className="text-[28px] font-semibold">
-            ${priceUSD ? priceUSD.bitcoin?.usd : "$66759"}
+            ${priceUSD ? priceUSD.bitcoin?.usd : ""}
           </div>
-          <div className="text-[16px] font-medium">₹ {priceINR ? priceINR.bitcoin?.inr : "₹ 5535287"}</div>
+          <div className="text-[16px] font-medium">₹ {priceINR ? priceINR.bitcoin?.inr : ""}</div>
         </div>
         <div className="w-[375.72px] h-[38.39px]  flex items-center gap-4">
           <div className="w-[84px] h-[28px] bg-[#EBF9F4] flex items-center justify-center gap-2 rounded-[4px]">
@@ -133,4 +133,4 @@ const HeroGraph = () => {
   );
 };
 
-export default HeroGraph;
+export default CoinGraph;

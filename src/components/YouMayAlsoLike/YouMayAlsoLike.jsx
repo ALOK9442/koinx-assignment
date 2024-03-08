@@ -6,7 +6,7 @@ import TrendingInner from '../TrendingInner/TrendingInner'
 
 const YouMayAlsoLike = () => {
   return (
-    <div className="w-[90rem] h-[492px] flex flex-col relative max-[411px]:w-[384px] bg-white">
+    <div className="w-full md:h-[492px] flex flex-col px-16 relative max-[411px]:w-[384px] bg-white">
       <MayLikeInner></MayLikeInner>
       <TrendingInner></TrendingInner>
     </div>

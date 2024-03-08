@@ -34,8 +34,8 @@ const MiniChartCarousel = ({ data, id }) => {
 
   return (
 
-    <div className="myElement w-full h-[180px]  flex items-center gap-[10px] overflow-x-scroll  scroll-smooth bg-white">
-      <svg id={"back"} onClick={(e) => handleBack(e)} className="absolute  cursor-pointer left-[-25px] z-[4] max-[411px]:left-[0px] " width="35" height="35" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <div className="myElement w-full h-45  flex items-center overflow-x-scroll  scroll-smooth bg-white">
+      <svg id={"back"} onClick={(e) => handleBack(e)} className="absolute  cursor-pointer z-[4] max-[411px]:left-[0px] " width="35" height="35" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg">
         <g clip-path="url(#clip0_57_41563)">
           <g clip-path="url(#clip1_57_41563)">
             <g filter="url(#filter0_d_57_41563)">
@@ -46,7 +46,7 @@ const MiniChartCarousel = ({ data, id }) => {
         </g>
         <defs>
           <filter id="filter0_d_57_41563" x="-4.02734" y="-4.85693" width="44" height="44" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-            <feFlood flood-opacity="0" result="BackgroundImageFix" />
+            <feFlood floodOpacity="0" result="BackgroundImageFix" />
             <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha" />
             <feOffset />
             <feGaussianBlur stdDeviation="4" />
@@ -63,7 +63,7 @@ const MiniChartCarousel = ({ data, id }) => {
           </clipPath>
         </defs>
       </svg>
-      <svg id={"front"} onClick={(e) => handleFront(e)} className="absolute cursor-pointer right-[-25px] z-[4] max-[411px]:right-[0px]" width="35" height="35" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <svg id={"front"} onClick={(e) => handleFront(e)} className="absolute cursor-pointer z-[4] max-[411px]:right-[0px]" width="35" height="35" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg">
         <g clip-path="url(#clip0_57_41556)">
           <g clip-path="url(#clip1_57_41556)">
             <g filter="url(#filter0_d_57_41556)">
@@ -74,7 +74,7 @@ const MiniChartCarousel = ({ data, id }) => {
         </g>
         <defs>
           <filter id="filter0_d_57_41556" x="-4.02734" y="-4.85693" width="44" height="44" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-            <feFlood flood-opacity="0" result="BackgroundImageFix" />
+            <feFlood floodOpacity="0" result="BackgroundImageFix" />
             <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha" />
             <feOffset />
             <feGaussianBlur stdDeviation="4" />
@@ -92,7 +92,7 @@ const MiniChartCarousel = ({ data, id }) => {
         </defs>
       </svg>
 
-      <div id={id} ref={container} onWheel={(e) => handleScroll(e)} className="myElement whitespace-nowrap w-full h-[180px]  flex items-center gap-[10px] overflow-x-scroll  scroll-smooth">
+      <div id={id} ref={container} onWheel={(e) => handleScroll(e)} className="myElement whitespace-nowrap w-full h-45 flex items-center gap-[10px] overflow-x-scroll  scroll-smooth">
         {data?.map((i) => (
           <MiniChart key={i.id} i={i}></MiniChart>
         ))}

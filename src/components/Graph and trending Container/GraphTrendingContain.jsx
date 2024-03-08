@@ -1,11 +1,11 @@
 import React from 'react'
-import HeroGraph from '../HeroGraph/HeroGraph'
-import TrendingCoins from '../TrendingCoins/TrendingCoins'
+import CoinGraph from '../CoinGraph/CoinGraph'
 const GraphTrendingContain = () => {
   return (
-    <div className="w-full h-[760px]  flex justify-between gap-[20px] max-[411px]:flex-col max-[411px]:h-[1000px]">
-        <HeroGraph></HeroGraph>
-        <TrendingCoins></TrendingCoins>
+    <div className="w-[100%] flex justify-between max-[411px]:flex-col">
+      {/* <div> */}
+        <CoinGraph />
+      {/* </div> */}
     </div>
   )
 }

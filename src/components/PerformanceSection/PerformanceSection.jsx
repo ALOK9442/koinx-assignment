@@ -15,7 +15,7 @@ function PerformanceSection() {
                 46,930.22
               </div>
             </div>
-            <div className="w-[500px] h-2">
+            <div className="w-[100%] h-2">
               <div className="bg-gradient-to-r from-red-500 via-orange-500 to-green-500 h-full rounded-2xl mt-7"></div>
               <div className="relative top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 mt-4">
                 <svg

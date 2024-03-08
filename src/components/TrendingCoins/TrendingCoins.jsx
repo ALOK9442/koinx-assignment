@@ -54,12 +54,16 @@ const TrendingCoins = () => {
   }, []);
 
   return (
-    <div className="w-[426px] h-full  flex flex-col justify-between gap-4 items-center max-[411px]:w-full max-[411px]:h-[700px] max-[411px]:gap-5 max-[411px]:mb-9 max-[411px]:absolute max-[411px]:bottom-0">
-      <div className="w-[426px] h-[515px] bg-[#0052FE] rounded-[8px] flex flex-col items-center justify-center gap-5 max-[411px]:h-[400px] max-[411px]:w-[379px] max-[411px]:gap-2">
-        <div className="w-[268px] h-[80px]  text-[24px] text-center leading-tight flex items-center justify-center font-[700] text-white max-[411px]:text-[19px]">Get Started with KoinX for FREE</div>
-        <div className="w-[260px] h-[68px] text-center flex items-center justify-center text-[14px] font-[500] text-white whitespace-normal">With our range of features that you can equip for free,
-          KoinX allows you to be more educated and aware of your tax reports.</div>
-        <svg className="  max-[411px]:w-[149px] max-[411px]:h-[139px] " width="164" height="150" viewBox="0 0 180 167" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <div className="md:w-96 w-[100%] flex flex-col gap-4 items-center ">
+      <div className="w-full h-[515px] pb-10 bg-[#0052FE] rounded-[8px] items-center flex flex-col pt-10 space-y-10">
+        <div className='h-48'>
+          <div className="text-2xl text-center px-12 flex justify-center font-[700] text-white">
+            Get Started with KoinX for FREE
+          </div>
+          <div className="text-center flex items-center justify-center text-sm mt-4 font-[500] text-white px-10">With our range of features that you can equip for free,
+            KoinX allows you to be more educated and aware of your tax reports.</div>
+        </div>
+        <svg className="w-[176px] h-[166.2px]" width="164" height="150" viewBox="0 0 180 167" fill="none" xmlns="http://www.w3.org/2000/svg">
           <g clip-path="url(#clip0_37_4042)">
             <path d="M26.833 153.729C61.721 170.384 118.283 170.389 153.171 153.729C188.059 137.068 188.054 110.067 153.171 93.4114C118.288 76.7561 61.721 76.7561 26.833 93.4114C-8.05487 110.067 -8.04981 137.073 26.833 153.729Z" fill="#1F67FF" />
             <path d="M153.05 141.421C159.475 141.421 164.684 138.935 164.684 135.868C164.684 132.801 159.475 130.314 153.05 130.314C146.624 130.314 141.415 132.801 141.415 135.868C141.415 138.935 146.624 141.421 153.05 141.421Z" fill="#0052FE" />
@@ -204,23 +208,21 @@ const TrendingCoins = () => {
             </clipPath>
           </defs>
         </svg>
-        <div className="w-[237px] h-[48px] bg-white text-black flex items-center justify-center text-[16px] font-[600] rounded-[8px] gap-2 max-[411px]:h-[30px]">
-          <div className="max-[411px]:text-[11px] cursor-pointer">Get Started for FREE</div>
-          <svg width="21" height="21" viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M16.9583 9.99492H4.45831" stroke="#0F1629" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-            <path d="M11.9168 4.97459L16.9585 9.99459L11.9168 15.0154" stroke="#0F1629" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-          </svg>
+        <div className=''>
+          <div className="bg-white text-black flex items-center justify-center text-[16px] font-[600] rounded-[8px] py-3 px-3">
+            <div className="cursor-pointer">Get Started for FREE</div>
+            <svg width="21" height="21" viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M16.9583 9.99492H4.45831" stroke="#0F1629" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+              <path d="M11.9168 4.97459L16.9585 9.99459L11.9168 15.0154" stroke="#0F1629" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </div>
         </div>
-
-
       </div>
-      <div className="h-[225px] w-full bg-white rounded-[8px] flex flex-col z-[6] justify-around px-4 max-[411px]:w-full max-[411px]:min-h-[250px] max-[411px]:justify-between ">
-        <div className="w-full h-[29px] text-[24px] font-[600] leading-[28.8px]  max-[411px]:mt-3 max-[411px]:justify-between ">Trending Coins (24H)</div>
+      <div className="w-full h-56 bg-white rounded-2 flex flex-col z-[6] justify-around px-4 max-[411px]:w-full max-[411px]:justify-between ">
+        <div className="w-full text-[24px] font-[600] leading-[28.8px]  max-[411px]:mt-3 max-[411px]:justify-between ">Trending Coins (24H)</div>
         {trendingCoins?.coins?.slice(0, 3).map((i) => (
-          <TrendingCoinsBanner key={i.id} i={i}></TrendingCoinsBanner>
+          <TrendingCoinsBanner key={i.id} i={i} />
         ))}
-
-
       </div>
     </div>
   )
