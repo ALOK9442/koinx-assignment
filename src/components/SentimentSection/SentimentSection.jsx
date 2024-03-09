@@ -4,7 +4,6 @@ import { IoMdInformationCircle } from "react-icons/io";
 function SentimentSection() {
   return (
     <div className="bg-white h-max rounded-lg my-5 p-6">
-      <div>
         <div className="text-2xl font-semibold text-[#0F1629]">Sentiment</div>
         <div className="flex items-center py-2 mt-2">
           <div className="text-[#44475B] font-semibold text-xl">Key Events</div>
@@ -109,7 +108,7 @@ function SentimentSection() {
             <div className="px-10 mt-2">
               <div className="flex p-2 items-center">
                 <div className="text-[#7C7E8C] text-[15px] mr-9">Buy</div>
-                <div className="w-[100%] h-2">
+                <div className="lg:w-96 w-[100%] h-2">
                   <div className="bg-[#00B386] h-full rounded-lg "></div>
                 </div>
                 <div className="ml-3 text-[#7C7E8C] text-sm">76%</div>
@@ -133,7 +132,6 @@ function SentimentSection() {
             </div>
           </div>
         </div>
-      </div>
     </div>
   );
 }

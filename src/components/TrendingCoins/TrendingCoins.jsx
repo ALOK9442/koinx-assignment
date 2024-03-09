@@ -54,8 +54,8 @@ const TrendingCoins = () => {
   }, []);
 
   return (
-    <div className="md:w-96 w-[100%] flex flex-col gap-4 items-center ">
-      <div className="w-full h-[515px] pb-10 bg-[#0052FE] rounded-[8px] items-center flex flex-col pt-10 space-y-10">
+    <div className="md:w-96 w-100vh w-[100%] flex flex-col gap-4 items-center ">
+      <div className="w-full md:h-[515px] pb-10 bg-[#0052FE] rounded-[8px] items-center flex flex-col pt-10 space-y-10">
         <div className='h-48'>
           <div className="text-2xl text-center px-12 flex justify-center font-[700] text-white">
             Get Started with KoinX for FREE
@@ -63,7 +63,7 @@ const TrendingCoins = () => {
           <div className="text-center flex items-center justify-center text-sm mt-4 font-[500] text-white px-10">With our range of features that you can equip for free,
             KoinX allows you to be more educated and aware of your tax reports.</div>
         </div>
-        <svg className="w-[176px] h-[166.2px]" width="164" height="150" viewBox="0 0 180 167" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg className="md:w-[176px] md:h-[166.2px]" width="164" height="150" viewBox="0 0 180 167" fill="none" xmlns="http://www.w3.org/2000/svg">
           <g clip-path="url(#clip0_37_4042)">
             <path d="M26.833 153.729C61.721 170.384 118.283 170.389 153.171 153.729C188.059 137.068 188.054 110.067 153.171 93.4114C118.288 76.7561 61.721 76.7561 26.833 93.4114C-8.05487 110.067 -8.04981 137.073 26.833 153.729Z" fill="#1F67FF" />
             <path d="M153.05 141.421C159.475 141.421 164.684 138.935 164.684 135.868C164.684 132.801 159.475 130.314 153.05 130.314C146.624 130.314 141.415 132.801 141.415 135.868C141.415 138.935 146.624 141.421 153.05 141.421Z" fill="#0052FE" />
