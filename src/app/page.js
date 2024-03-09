@@ -1,16 +1,15 @@
 "use client"
 
-import PageDirectoryShow from "@/components/page directory/PageDirectoryShow";
-import GraphTrendingContain from "@/components/Graph and trending Container/GraphTrendingContain";
-import SentimentSection from "@/components/SentimentSection/SentimentSection";
-import SectionOptions from "@/components/SectionOptions/SectionOptions";
-import PerformanceSection from "@/components/PerformanceSection/PerformanceSection";
-import AboutBitcoin from "@/components/AboutBitcoin/AboutBitcoin";
-import Tokenomics from "@/components/Tokenomics/Tokenomics";
-import TeamDetails from "@/components/TeamDetail/TeamDetail";
-import Navbar from "@/components/Navbar/Navbar";
-import YouMayAlsoLike from "@/components/YouMayAlsoLike/YouMayAlsoLike";
-import TrendingCoins from "@/components/TrendingCoins/TrendingCoins";
+import PageDirectoryShow from "../components/PageDirectoryShow/PageDirectoryShow";
+import GraphTrendingContain from "../components/Graph and trending Container/GraphTrendingContain";
+import SentimentSection from "../components/SentimentSection/SentimentSection";
+import SectionOptions from "../components/SectionOptions/SectionOptions";
+import PerformanceSection from "../components/PerformanceSection/PerformanceSection";
+import AboutBitcoin from "../components/AboutBitcoin/AboutBitcoin";
+import Tokenomics from "../components/Tokenomics/Tokenomics";
+import TeamDetails from "../components/TeamDetail/TeamDetail";
+import YouMayAlsoLike from "../components/YouMayAlsoLike/YouMayAlsoLike";
+import TrendingCoins from "../components/TrendingCoins/TrendingCoins";
 
 
 export default function Home() {
