@@ -1,6 +1,6 @@
 export default function Card({ name, src, des }) {
     return (
-        <div className="flex bg-[#E8F4FD] rounded-lg py-4 px-8 my-6">
+        <div className="flex bg-[#E8F4FD] flex-col lg:flex-row rounded-lg py-4 px-8 my-6">
             <div className="justify-center flex flex-col items-center">
                 <div>
                     <img className="rounded-xl" src={src} alt="" />

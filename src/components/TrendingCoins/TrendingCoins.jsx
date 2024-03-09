@@ -54,7 +54,7 @@ const TrendingCoins = () => {
   }, []);
 
   return (
-    <div className="md:w-96 w-100vh w-[100%] flex flex-col gap-4 items-center ">
+    <div className="md:w-96 w-100vh flex flex-col gap-4 items-center ">
       <div className="w-full md:h-[515px] pb-10 bg-[#0052FE] rounded-[8px] items-center flex flex-col pt-10 space-y-10">
         <div className='h-48'>
           <div className="text-2xl text-center px-12 flex justify-center font-[700] text-white">
